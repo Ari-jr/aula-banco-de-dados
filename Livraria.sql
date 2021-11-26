@@ -70,7 +70,7 @@ create table livros (
 
 -- isbn: 123
 
--- Data Publicação: 2000/04/07
+-- Data Publicaï¿½ï¿½o: 2000/04/07
 
 -- Preco: 25.90
 
@@ -84,7 +84,7 @@ create table livros (
 
 -- isbn: 456
 
--- Data Publicação: 1996/08/06
+-- Data Publicaï¿½ï¿½o: 1996/08/06
 
 -- Preco: 64.37
 
@@ -98,13 +98,13 @@ create table livros (
 
 -- isbn: 789
 
--- Data Publicação: 2016/01/01
+-- Data Publicaï¿½ï¿½o: 2016/01/01
 
 -- Preco: 107.00
 
 
 
--- Livro: O Leão, a Feiticeira e o Guarda-Roupa
+-- Livro: O Leï¿½o, a Feiticeira e o Guarda-Roupa
 
 -- Autor: Clive S. Lewis
 
@@ -112,7 +112,7 @@ create table livros (
 
 -- isbn: 321
 
--- Data Publicação: 1950/10/16
+-- Data Publicaï¿½ï¿½o: 1950/10/16
 
 -- Preco: 24.90
 
@@ -132,8 +132,36 @@ insert into livros (nome_livro, isbn, data_puclicacao, preco, id_autor, id_edito
 ('Harry Potter e a Pedra Filosofal', 123, '2000/04/07', 25.90, 1, 1),
 ('A Guerra dos Tronos', 456, '1996/08/06', 64.37, 2, 2),
 ('Cavaleiro da Armadura Enferrujada', 789, '2016/01/01', 107.00, 3, 3),
-('O Leão, a Feiticeira e o Guarda-Roupa', 321, '1950/10/16', 24.90, 4, 4);
+('O Leï¿½o, a Feiticeira e o Guarda-Roupa', 321, '1950/10/16', 24.90, 4, 4);
 
 select * from editoras;
 select * from autores;
 select * from livros;
+
+-- Consultar somente os livros em ordem alfabetica por nome.
+
+select * from livros
+order by nome_livro asc;
+
+-- Consultar livros com as datas em ordem decrescente por data.
+
+select * from livros
+order by data_puclicacao asc;
+
+-- Consultar livros que contenha a palavra "Armadura" no titulo.
+select * from livros
+where nome_livro like '%Armadura%';
+
+
+-- Consultar quantos livros tem na tabela em uma coluna com o nome quantidade_livro.
+select count(*) as livros from fk_itens_pedidos_quantidade;
+
+-- Deletar o livro A guerra dos tronos.
+
+delete from livros where nome_livro = 'A guerra dos tronos';
+
+-- Na tabela livros mudar o preco do livro Cavaleiro da Armadura Enferrujada para 500.
+
+
+
+-- Consultar o nome do livro, o autor e a editora.
